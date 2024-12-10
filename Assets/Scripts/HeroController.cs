@@ -18,6 +18,7 @@ public class HeroController : MonoBehaviour
     void Update()
     {
         direction = new Vector3(0, 0, 0);
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             direction += new Vector3(0, 0, -1);
@@ -34,7 +35,11 @@ public class HeroController : MonoBehaviour
         {
             direction += new Vector3(-1, 0, 0);
         }
+
         // передвигаем, нормализовав вектор по времени
-        rb.Move(transform.position + direction * Time.deltaTime * speed, transform.rotation);
+        rb.MovePosition(transform.position + direction * Time.deltaTime * speed);
+
+        // и поворачиваем
+        rb.MoveRotation(Quaternion.LookRotation(direction));
     }
 }
