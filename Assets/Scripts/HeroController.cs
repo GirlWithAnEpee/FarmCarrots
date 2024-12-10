@@ -37,9 +37,13 @@ public class HeroController : MonoBehaviour
         }
 
         // передвигаем, нормализовав вектор по времени
-        rb.MovePosition(transform.position + direction * Time.deltaTime * speed);
+        rb.MovePosition(transform.position + Vector3.Normalize(direction) * Time.deltaTime * speed);
 
-        // и поворачиваем
-        rb.MoveRotation(Quaternion.LookRotation(direction));
+        // и поворачиваем, если двигаемся
+        if (direction != Vector3.zero)
+        {
+            rb.MoveRotation(Quaternion.LookRotation(direction));
+        }
+        
     }
 }
