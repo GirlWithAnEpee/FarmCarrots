@@ -6,12 +6,16 @@ public class HeroController : MonoBehaviour
 {
     private Vector3 direction;
     private Rigidbody rb;
+    private Animator anim;
     public float speed = 15;
     // Start is called before the first frame update
     void Start()
     {
         direction = new Vector3(0, 0, 0);
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("IsRunning", false);
+        
     }
 
     // Update is called once per frame
@@ -43,6 +47,10 @@ public class HeroController : MonoBehaviour
         if (direction != Vector3.zero)
         {
             rb.MoveRotation(Quaternion.LookRotation(direction));
+            anim.SetBool("IsRunning", true);
+        } else
+        {
+            anim.SetBool("IsRunning", false);
         }
         
     }
