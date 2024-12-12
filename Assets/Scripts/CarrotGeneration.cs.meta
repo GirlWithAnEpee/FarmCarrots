@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: f2d965a7495b7b64bb4608115d7420de
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - carrotPrefab: {fileID: 3407912047398925414, guid: 4a61f7de353f4874d92d4ccc23d3a48c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
