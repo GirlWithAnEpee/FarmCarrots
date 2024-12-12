@@ -54,4 +54,12 @@ public class HeroController : MonoBehaviour
         }
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Food"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
