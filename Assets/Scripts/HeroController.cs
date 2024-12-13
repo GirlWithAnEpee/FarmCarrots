@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HeroController : MonoBehaviour
@@ -8,6 +9,9 @@ public class HeroController : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
     public float speed = 15;
+    public TextMeshProUGUI carrotCountText;
+    private int carrotCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,6 @@ public class HeroController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         anim.SetBool("IsRunning", false);
-        
     }
 
     // Update is called once per frame
@@ -60,6 +63,13 @@ public class HeroController : MonoBehaviour
         if (collision.gameObject.CompareTag("Food"))
         {
             Destroy(collision.gameObject);
+            IncreaseCarrotCount();
         }
+    }
+
+    private void IncreaseCarrotCount()
+    {
+        carrotCount++;
+        carrotCountText.text = "Carrots: " + carrotCount;
     }
 }
